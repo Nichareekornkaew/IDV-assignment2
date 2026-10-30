@@ -55,7 +55,7 @@
                 pointer-events: none;
             }
 
-            /* Assignment 010 - Ellipse Hover */
+            /* Assignment 011 - Ellipse Hover */
             .topological-node {
                 fill: white;
                 transition: fill 0.2s ease;
@@ -66,10 +66,21 @@
                 cursor: pointer;
             }
 
-            /* Allow mouse hover through text */
+            /* Assignment 011 - Allow mouse hover through text */
             #topological-nodes text {
                 pointer-events: none;
             }           
+            
+            /* Assignment 017 - Curve Hover */
+            #sigmoid-path {
+                transition: stroke 0.2s ease, stroke-width 0.2s ease;
+            }
+
+            #sigmoid-path:hover {
+                stroke: #E89143;
+                stroke-width: 4;
+                cursor: crosshair;
+            }
         </style>
     </head>
 
@@ -420,7 +431,6 @@
                             font-size="16">
                         0
                     </text>
-
 
                     <circle class="heap-node"
                             cx="200"
@@ -1339,15 +1349,241 @@
         <!-- Assignment 06 -->
         <section>
             <h2>SVG Practice 017</h2>
-            <svg>
 
+            <svg width="800"
+                height="600"
+                viewbox="0 0 800 600"
+                style="font-family: Arial, sans-serif;">
 
+                <!-- Coordinate axes -->
+                <g id="sigmoid-axes">
+                    <!-- X axis -->
+                    <line x1="50" y1="500"
+                        x2="780" y2="500"
+                        stroke="black"
+                        stroke-width="1.5" />
 
+                     <!-- Y axis -->
+                    <line x1="50" y1="500"
+                        x2="50" y2="40"
+                        stroke="black"
+                        stroke-width="1.5" />
+                </g>
 
+                <!-- Axis ticks and labels -->
+                <g id="sigmoid-ticks">
 
+                    <!--X-Axis ticks-->
+                    <line x1="415" y1="500"
+                        x2="415" y2="510"
+                        stroke="black" />
+                    <text x="415" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        0.0
+                    </text>
+
+                    <line x1="331.25" y1="500"
+                        x2="331.25" y2="510"
+                        stroke="black" />
+                    <text x="331.25" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        -2.5
+                    </text>
+
+                    <line x1="247.5" y1="500"
+                        x2="247.5" y2="510"
+                        stroke="black" />
+                    <text x="247.5" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        -5
+                    </text>
+
+                    <line x1="163.75" y1="500"
+                        x2="163.75" y2="510"
+                        stroke="black" />
+                    <text x="163.75" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        -7.5
+                    </text>
+
+                    <line x1="80" y1="500"
+                        x2="80" y2="510"
+                        stroke="black" />
+                    <text x="80" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        -10
+                    </text>
+
+                    <line x1="498.75" y1="500"
+                        x2="498.75" y2="510"
+                        stroke="black" />
+                    <text x="498.75" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        2.5
+                    </text>
+
+                    <line x1="582.5" y1="500"
+                        x2="582.5" y2="510"
+                        stroke="black" />
+                    <text x="582.5" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        5
+                    </text>
+
+                    <line x1="666.25" y1="500"
+                        x2="666.25" y2="510"
+                        stroke="black" />
+                    <text x="666.25" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        7.5
+                    </text>
+
+                    <line x1="750" y1="500"
+                        x2="750" y2="510"
+                        stroke="black" />
+                    <text x="750" y="530"
+                        text-anchor="middle"
+                        font-size="14">
+                        10
+                    </text>
+
+                    <!--Y-Axis ticks-->
+                    <line x1="40" y1="450"
+                        x2="50" y2="450"
+                        stroke="black" />
+                    <text x="35" y="453"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        0.0
+                    </text>
+
+                    <line x1="40" y1="372"
+                        x2="50" y2="372"
+                        stroke="black" />
+                    <text x="35" y="375"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        0.2
+                    </text>
+
+                    <line x1="40" y1="294"
+                        x2="50" y2="294"
+                        stroke="black" />
+                    <text x="35" y="297"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        0.4
+                    </text>
+
+                    <line x1="40" y1="216"
+                        x2="50" y2="216"
+                        stroke="black" />
+                    <text x="35" y="220"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        0.6
+                    </text>
+
+                    <line x1="40" y1="138"
+                        x2="50" y2="138"
+                        stroke="black" />
+                    <text x="35" y="142"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        0.8
+                    </text>
+
+                    <line x1="40" y1="60"
+                        x2="50" y2="60"
+                        stroke="black" />
+                    <text x="35" y="63"
+                        text-anchor="end"
+                        font-size="14"
+                        fill="black">
+                        1.0
+                    </text>
+                </g>
+
+                <!-- Sigmoid curve -->
+                <g id="sigmoid-curve">
+                <path id="sigmoid-path"
+                        fill="none"
+                        stroke="#3180BD"
+                        stroke-width="3" />
+                </g>
             </svg>
         </section>
+        
+        <script>
+            // Wait until the page is loaded
+            document.addEventListener("DOMContentLoaded", function () {
 
+                // 1. Select the SVG path
+                const path = document.getElementById("sigmoid-path");
 
+                // 2. Graph area (must match your axes)
+                const left = 80;
+                const right = 780;
+                const top = 50;
+                const bottom = 450;
+
+                // 3. Data range
+                const xMin = -10;
+                const xMax = 10;
+                const yMin = 0;
+                const yMax = 1;
+
+                // 4. Number of sample points
+                const numPoints = 200;
+
+                // 5. Sigmoid function
+                function sigmoid(x) {
+                return 1 / (1 + Math.exp(-x));
+                }
+
+                // 6. Convert data x to SVG x
+                function mapX(x) {
+                return left + ((x - xMin) / (xMax - xMin)) * (right - left);
+                }
+
+                // 7. Convert data y to SVG y
+                function mapY(y) {
+                return bottom - ((y - yMin) / (yMax - yMin)) * (bottom - top);
+                }
+
+                // 8. Build SVG path string
+                let d = "";
+
+                for (let i = 0; i <= numPoints; i++) {
+                const x = xMin + (i / numPoints) * (xMax - xMin);
+                const y = sigmoid(x);
+
+                const svgX = mapX(x);
+                const svgY = mapY(y);
+
+                if (i === 0) {
+                    d += `M ${svgX} ${svgY}`;
+                } else {
+                    d += ` L ${svgX} ${svgY}`;
+                }
+                }
+
+                // 9. Apply the path
+                path.setAttribute("d", d);
+                });
+        </script>
     </body>
 </html>
