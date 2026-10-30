@@ -26,7 +26,7 @@
             }
 
             .heap-node:hover {
-                fill: #B9DAF2;
+                fill: #99B3FF;
                 cursor: pointer;
             }
 
@@ -39,6 +39,37 @@
             .hierarchy-box:hover {
                 opacity: 0.3;
             }
+
+            /* Assignment 010 - Vertex Hover */
+            .graph-vertex {
+                fill: white;
+                transition: fill 0.2s ease;
+            }
+
+            .graph-vertex:hover {
+                fill: #FF99D6;
+                cursor: pointer;
+            }
+
+            #graph-vertices text {
+                pointer-events: none;
+            }
+
+            /* Assignment 010 - Ellipse Hover */
+            .topological-node {
+                fill: white;
+                transition: fill 0.2s ease;
+            }
+
+            .topological-node:hover {
+                fill: #FFE099;
+                cursor: pointer;
+            }
+
+            /* Allow mouse hover through text */
+            #topological-nodes text {
+                pointer-events: none;
+            }           
         </style>
     </head>
 
@@ -874,6 +905,449 @@
                 </g>           
             </svg>
         </section>
+
+
+
+
+
+        <!-- Assignment 04 -->
+        <section>
+            <h2>SVG Practice 010</h2>
+
+            <svg width="500" 
+                height="350"
+                viewBox="0 0 500 350"
+                style="font-family: Arial, sans-serif;">
+
+                <defs>
+                    <marker id="arrowhead"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                    </marker>
+                </defs>
+
+                <g id="direction-graph" transform="translate(80,0)">
+
+                    <g id="graph-edges">
+                        <!-- Edge from V1 to V2 -->
+                        <line x1="40" y1="115"
+                            x2="155" y2="40"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V1 to V5-->
+                        <line x1="155" y1="40"
+                            x2="320" y2="110"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V5 to V4-->
+                        <line x1="345" y1="115"
+                            x2="260" y2="180"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V4 to V1-->
+                        <line x1="230" y1="190"
+                            x2="165" y2="80"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V4 to V3-->
+                        <line x1="230" y1="190"
+                            x2="125" y2="240"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V2 to V3-->
+                        <line x1="40" y1="115"
+                            x2="95" y2="250"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+
+                        <!--Edge from V2 to V4-->
+                        <line x1="40" y1="115"
+                            x2="200" y2="180"
+                            stroke="black"
+                            stroke-width="2"
+                            marker-end="url(#arrowhead)" />
+                    </g>                  
+
+                    <g id="edge-labels">
+                        <text x="80" y="75" font-size="14">
+                            E1
+                        </text>
+
+                        <text x="260" y="68" font-size="14">
+                            E2
+                        </text>
+
+                        <text x="285" y="175" font-size="14">
+                            E3
+                        </text>
+
+                        <text x="205" y="125" font-size="14">
+                            E4
+                        </text>
+
+                        <text x="170" y="235" font-size="14">
+                            E5
+                        </text>
+
+                        <text x="42" y="185" font-size="14">
+                            E6
+                        </text>
+
+                        <text x="125" y="145" font-size="14">
+                            E7
+                        </text>
+                    </g>
+
+                    <g id="graph-vertices">
+                        <!-- V1-->
+                        <circle class="graph-vertex"
+                            cx="155" cy="50" r="30" 
+                            fill="white" 
+                            stroke="black" 
+                            stroke-width="2" />
+                        <text x="155" y="55" 
+                            text-anchor="middle" 
+                            font-size="16"
+                            fill="black">
+                            V1
+                        </text>
+
+                        <!-- V2-->
+                        <circle class="graph-vertex"
+                            cx="40" cy="120" r="30"
+                            fill="white" 
+                            stroke="black" 
+                            stroke-width="2" />
+                        <text x="40" y="125" 
+                            text-anchor="middle" 
+                            font-size="16"
+                            fill="black">
+                            V2
+                        </text>
+
+                        <!-- V3-->
+                        <circle class="graph-vertex"
+                            cx="95" cy="250" r="30"
+                            fill="white" 
+                            stroke="black" 
+                            stroke-width="2" /> 
+                        <text x="95" y="255" 
+                            text-anchor="middle" 
+                            font-size="16"
+                            fill="black">
+                            V3
+                        </text>
+
+                        <!-- V4-->
+                        <circle class="graph-vertex"
+                            cx="230" cy="190" r="30"
+                            fill="white" 
+                            stroke="black" 
+                            stroke-width="2" />
+                        <text x="230" y="195" 
+                            text-anchor="middle" 
+                            font-size="16"
+                            fill="black">
+                            V4
+                        </text>
+
+                        <!-- V5-->
+                        <circle class="graph-vertex"
+                            cx="350" cy="120" r="30"
+                            fill="white" 
+                            stroke="black" 
+                            stroke-width="2" />
+                        <text x="350" y="125" 
+                            text-anchor="middle" 
+                            font-size="16"
+                            fill="black">
+                            V5
+                        </text>
+                    </g>
+                </g>
+            </svg>
+        </section>
+
+
+
+
+
+        <!-- Assignment 05 -->
+        <section>
+            <h2>SVG Practice 011</h2>
+
+            <svg width="1800"
+                height="270"
+                viewbox="0 0 2000 300"
+                style="max-width: 100%; height: auto;"
+                style="font-family: Arial, sans-serif;"> 
+
+                <!--Reusable arrowhead-->
+                <defs>
+                    <marker id="topological-arrow"
+                        viewBox="0 0 10 10"
+                        refX="9"
+                        refY="5"
+                        markerWidth="6"
+                        markerHeight="6"
+                        orient="auto">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="black" />
+                    </marker>
+                </defs>
+
+                <!--Straight and curved connections-->
+                <g id="topological-edges">
+                    <line x1="750" y1="85"
+                        x2="825" y2="85"
+                        stroke="black"
+                        stroke-width="2"
+                        marker-end="url(#topological-arrow)" />
+
+                    <line x1="950" y1="85"
+                        x2="1025" y2="85"
+                        stroke="black"
+                        stroke-width="2"
+                        marker-end="url(#topological-arrow)" />
+
+                    <line x1="1150" y1="85"
+                        x2="1225" y2="85"
+                        stroke="black"
+                        stroke-width="2"
+                        marker-end="url(#topological-arrow)" />
+
+                    <path d="M1100 88 Q1270 0 1450 65"
+                        fill="none"
+                        stroke="black"
+                        stroke-width="2"
+                        marker-end="url(#topological-arrow)" />
+
+                    <path d="M1120 110 Q1380 220 1650 105"
+                        fill="none"
+                        stroke="black"
+                        stroke-width="2"
+                        marker-end="url(#topological-arrow)" />
+                </g>
+
+                <!-- Ellipse nodes -->
+                <g id="topological-nodes">
+                    <!-- Ellipse1-->
+                    <ellipse class="topological-node"
+                            cx="100" cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="100" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        underpant
+                    </text>
+
+                    <!--Ellipse2-->
+                    <ellipse class="topological-node"
+                            cx="300"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="300" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        watch
+                    </text>
+
+                    <!--Ellipse3-->
+                    <ellipse class="topological-node"
+                            cx="500"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="500" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        socks
+                    </text>
+
+                    <!--Ellipse4-->
+                    <ellipse class="topological-node"
+                            cx="700"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="700" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        undershirt
+                    </text>
+
+                    <!--Ellipse5-->
+                    <ellipse class="topological-node"
+                            cx="900"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="900" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        shirt
+                    </text>
+
+                    <!--Ellipse6-->
+                    <ellipse class="topological-node"
+                            cx="1100"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="1100" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        pants
+                    </text>
+
+                    <!--Ellipse7-->
+                    <ellipse class="topological-node"
+                            cx="1300"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="1300" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        shoes
+                    </text>
+
+                    <!--Ellipse8-->
+                    <ellipse class="topological-node"
+                            cx="1500"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="1500" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        belt
+                    </text>
+
+                    <!--Ellipse9-->
+                    <ellipse class="topological-node"
+                            cx="1700"cy="85"
+                            rx="75" ry="25"
+                            fill="white"
+                            stroke="black"
+                            stroke-width="1.5" />
+                    <text x="1700" y="92"
+                            text-anchor="middle"
+                            font-size="18">
+                        wallets
+                    </text>
+                </g>
+
+                <!-- Timestamp labels -->
+                <g id="topological-timestamps">
+                    <text x="100" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    17/18
+                    </text>
+
+                    <text x="300" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    15/16
+                    </text>
+
+                    <text x="500" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    13/14
+                    </text>
+
+                    <text x="700" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    1/12
+                    </text>
+
+                    <text x="900" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    2/11
+                    </text>
+
+                    <text x="1100" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    3/10
+                    </text>
+
+                    <text x="1300" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    8/9
+                    </text>
+
+                    <text x="1500" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    6/7
+                    </text>
+
+                    <text x="1700" y="135"
+                        text-anchor="middle"
+                        font-size="18"
+                        fill="black">
+                    4/5
+                    </text>
+                </g>
+            </svg>
+        </section>
+
+
+
+
+
+        <!-- Assignment 06 -->
+        <section>
+            <h2>SVG Practice 017</h2>
+            <svg>
+
+
+
+
+
+            </svg>
+        </section>
+
 
     </body>
 </html>
